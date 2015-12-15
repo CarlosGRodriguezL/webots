@@ -20,6 +20,7 @@
             <groupId>webots</groupId>
             <artifactId>webots</artifactId>
             <version>8.3.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
