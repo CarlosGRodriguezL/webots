@@ -16,7 +16,7 @@ public class ProportionalControllerA extends DifferentialWheels {
     private static int S_BACKWARD_LEFT = 4; // Sensor front left
     private static int S_BACKWARD_RIGHT = 5; // Sensor front right
     private static int MIN_SPEED = 0; // min. motor speed
-    private static int AVG_SPEED = 500;
+    private static int AVG_SPEED = 400;
     private static int MAX_SPEED = 1000; // max. motor speed
 
     private static int LIGHT_TOLERANCE = 200;
@@ -62,10 +62,6 @@ public class ProportionalControllerA extends DifferentialWheels {
         setSpeed(AVG_SPEED,MAX_SPEED);
     }
 
-    private void pause(){
-        setSpeed(MIN_SPEED, MIN_SPEED);
-    }
-
     private boolean isFrontSensorInTolleranz () {
         if ((Math.abs(sensors[S_FRONT_RIGHT].getValue() - sensors[S_FRONT_LEFT].getValue()) < LIGHT_TOLERANCE)){
             return true;
@@ -80,24 +76,27 @@ public class ProportionalControllerA extends DifferentialWheels {
      */
     public void run() {
         while (step(TIME_STEP) != -1) {
-            if (sensors[S_BACKWARD_LEFT].getValue() + sensors[S_BACKWARD_RIGHT].getValue() < sensors[S_FRONT_LEFT].getValue() + sensors[S_FRONT_RIGHT].getValue()) {
-                //lightsource is behind the roboter
-                printInfo("DriveAvgRight");
-                driveAvgRight();
-            } else if (isFrontSensorInTolleranz()){
-                printInfo("StraigtForward");
-                driveForward();
-            } else if (sensors[S_LEFT].getValue() < sensors[S_RIGHT].getValue()) {
-                printInfo("DriveAVGLeft");
-                driveAvgLeft();
-
-            } else if (sensors[S_RIGHT].getValue() < sensors[S_LEFT].getValue()) {
-                printInfo("DriveAVGRight");
-                driveAvgRight();
-            }
-
+            calcSpeed();
+            printInfo("PropControllerA");
         }
     }
+
+    private double calcLeftSpeed(){
+        return (sensors[S_RIGHT].getValue() - sensors[S_LEFT].getValue()) / 2;
+    }
+
+    private double calcRightSpeed(){
+        return (sensors[S_LEFT].getValue() - sensors[S_RIGHT].getValue()) / 2;
+    }
+
+    //TODO Not finished
+    private void calcSpeed(){
+        double speedLeft = AVG_SPEED - calcLeftSpeed();
+        double speedRight = AVG_SPEED - calcRightSpeed();
+        System.out.println(speedLeft + " CalculatedSpeedLeft" + calcLeftSpeed() + " " + speedRight + " CalculatedSpeedLeft" + calcRightSpeed());
+        setSpeed(speedLeft, speedRight);
+    }
+
 
     /**
      * Main method - in this method an instance of the controller is created and

@@ -4,7 +4,7 @@ import com.cyberbotics.webots.controller.LightSensor;
 /**
  * Created by Carlos on 07.12.2015.
  */
-public class BangBangController extends DifferentialWheels {
+public class BangBangControllerB extends DifferentialWheels {
     private static int TIME_STEP = 16;
 
     private static int MAX_LIGHT = 4096;
@@ -20,7 +20,7 @@ public class BangBangController extends DifferentialWheels {
 
     private LightSensor[] sensors; // Array with all distance sensors
 
-    public BangBangController() {
+    public BangBangControllerB() {
         super();
         // get distance sensors and save them in array
         sensors = new LightSensor[] { getLightSensor("ls5"),
@@ -103,7 +103,7 @@ public class BangBangController extends DifferentialWheels {
      * @param args
      */
     public static void main(String[] args) {
-        BangBangController controller = new BangBangController();
+        BangBangControllerB controller = new BangBangControllerB();
         controller.run();
     }
 

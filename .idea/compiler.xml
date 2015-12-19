@@ -22,10 +22,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="webots" />
+        <module name="AbstractLightController" />
+        <module name="BangBangControllerA" />
+        <module name="BangBangControllerB" />
+        <module name="BangBangControllerC" />
+        <module name="ProportionalControllerA" />
+        <module name="ProportionalControllerC" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AbstractLightController" target="1.5" />
+      <module name="BangBangControllerA" target="1.5" />
+      <module name="BangBangControllerB" target="1.5" />
+      <module name="BangBangControllerC" target="1.5" />
+      <module name="ProportionalControllerA" target="1.5" />
+      <module name="ProportionalControllerC" target="1.5" />
       <module name="webots" target="1.5" />
     </bytecodeTargetLevel>
   </component>
