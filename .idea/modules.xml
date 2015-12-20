@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AbstractDistanceController/AbstractDistanceController.iml" filepath="$PROJECT_DIR$/AbstractDistanceController/AbstractDistanceController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AbstractLightController/AbstractLightController.iml" filepath="$PROJECT_DIR$/AbstractLightController/AbstractLightController.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" filepath="$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" filepath="$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" filepath="$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" />

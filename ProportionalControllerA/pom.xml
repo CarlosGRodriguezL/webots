@@ -11,5 +11,33 @@
 
     <artifactId>ProportionalControllerA</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>domcar</groupId>
+            <artifactId>AbstractLightController</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>ProportionalControllerA</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

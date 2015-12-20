@@ -14,11 +14,13 @@
         <module>BangBangControllerC</module>
         <module>ProportionalControllerC</module>
         <module>BangBangControllerB</module>
+        <module>AbstractLightController</module>
+        <module>AbstractDistanceController</module>
     </modules>
 
     <repositories>
         <repository>
-            <id>local</id>
+            <id>rep</id>
             <url>${project.baseUri}/lib</url>
         </repository>
     </repositories>

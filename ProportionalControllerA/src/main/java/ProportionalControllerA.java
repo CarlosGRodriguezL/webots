@@ -4,70 +4,10 @@ import com.cyberbotics.webots.controller.LightSensor;
 /**
  * Created by Dominik on 17.12.2015.
  */
-public class ProportionalControllerA extends DifferentialWheels {
-    private static int TIME_STEP = 16;
-
-    private static int MAX_LIGHT = 4096;
-
-    private static int S_LEFT = 0; // Sensor left
-    private static int S_FRONT_LEFT = 1; // Sensor front left
-    private static int S_FRONT_RIGHT = 2; // Sensor front right
-    private static int S_RIGHT = 3; // Sensor left
-    private static int S_BACKWARD_LEFT = 4; // Sensor front left
-    private static int S_BACKWARD_RIGHT = 5; // Sensor front right
-    private static int MIN_SPEED = 0; // min. motor speed
-    private static int AVG_SPEED = 400;
-    private static int MAX_SPEED = 1000; // max. motor speed
-
-    private static int LIGHT_TOLERANCE = 200;
-
-    private LightSensor[] sensors; // Array with all distance sensors
+public class ProportionalControllerA extends AbstractLightController {
 
     public ProportionalControllerA() {
         super();
-        // get distance sensors and save them in array
-        sensors = new LightSensor[] { getLightSensor("ls5"),
-                getLightSensor("ls7"), getLightSensor("ls0"),
-                getLightSensor("ls2"), getLightSensor("ls4"), getLightSensor("ls3")};
-        for (int i=0; i< sensors.length ; i++)
-            sensors[i].enable(10);
-    }
-
-    /**
-     * Robot drives to the right
-     */
-    private void driveRight() {
-        setSpeed(MAX_SPEED, MIN_SPEED);
-    }
-
-    /**
-     * Robot drives to the left
-     */
-    private void driveLeft() {
-        setSpeed(MIN_SPEED, MAX_SPEED);
-    }
-
-    /**
-     * Robot drives forward
-     */
-    private void driveForward() {
-        setSpeed(MAX_SPEED, MAX_SPEED);
-    }
-
-    private void driveAvgRight(){
-        setSpeed(MAX_SPEED, AVG_SPEED);
-    }
-
-    private void driveAvgLeft(){
-        setSpeed(AVG_SPEED,MAX_SPEED);
-    }
-
-    private boolean isFrontSensorInTolleranz () {
-        if ((Math.abs(sensors[S_FRONT_RIGHT].getValue() - sensors[S_FRONT_LEFT].getValue()) < LIGHT_TOLERANCE)){
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**
@@ -76,25 +16,23 @@ public class ProportionalControllerA extends DifferentialWheels {
      */
     public void run() {
         while (step(TIME_STEP) != -1) {
-            calcSpeed();
-            printInfo("PropControllerA");
+            goToLightSource();
+            printInfo("GoToLightSource");
         }
     }
 
     private double calcLeftSpeed(){
-        return (sensors[S_RIGHT].getValue() - sensors[S_LEFT].getValue()) / 2;
+        return (sensors[S_RIGHT].getValue() - sensors[S_LEFT].getValue());
     }
 
     private double calcRightSpeed(){
-        return (sensors[S_LEFT].getValue() - sensors[S_RIGHT].getValue()) / 2;
+        return (sensors[S_LEFT].getValue() - sensors[S_RIGHT].getValue());
     }
 
-    //TODO Not finished
-    private void calcSpeed(){
-        double speedLeft = AVG_SPEED - calcLeftSpeed();
-        double speedRight = AVG_SPEED - calcRightSpeed();
-        System.out.println(speedLeft + " CalculatedSpeedLeft" + calcLeftSpeed() + " " + speedRight + " CalculatedSpeedLeft" + calcRightSpeed());
-        setSpeed(speedLeft, speedRight);
+    private void goToLightSource(){
+        double speedLeft = MAX_SPEED - calcLeftSpeed();
+        double speedRight = MAX_SPEED - calcRightSpeed();
+        setSpeed(Math.min(MAX_SPEED, speedLeft), Math.min(MAX_SPEED, speedRight));
     }
 
 
@@ -109,12 +47,4 @@ public class ProportionalControllerA extends DifferentialWheels {
         controller.run();
     }
 
-    public void printInfo(String name){
-        System.out.println(name + " " +
-                "LEFT: "+ sensors[S_LEFT].getValue()  + "; " +
-                        "RIGHT: "+ sensors[S_RIGHT].getValue() + "; " +
-                        "LEFT_FRONT: "+ sensors[S_FRONT_LEFT].getValue() + "; " +
-                        "RIGHT_FRONT: "+ sensors[S_FRONT_RIGHT].getValue() + "; "
-        );
-    }
 }

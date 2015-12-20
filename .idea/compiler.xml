@@ -22,6 +22,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="AbstactDistanceController" />
+        <module name="AbstractController" />
+        <module name="AbstractDistanceController" />
         <module name="AbstractLightController" />
         <module name="BangBangControllerA" />
         <module name="BangBangControllerB" />
@@ -31,6 +34,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AbstactDistanceController" target="1.5" />
+      <module name="AbstractController" target="1.5" />
+      <module name="AbstractDistanceController" target="1.5" />
       <module name="AbstractLightController" target="1.5" />
       <module name="BangBangControllerA" target="1.5" />
       <module name="BangBangControllerB" target="1.5" />
