@@ -9,7 +9,7 @@ public class ProportionalControllerD extends AbstractController {
 
     /**
      * User defined function for initializing and running the
-     * ProportionalControllerC class
+     * ProportionalControllerD class
      */
     public void run() {
         while (step(TIME_STEP) != -1) {

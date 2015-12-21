@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="AbstactDistanceController" />
+        <module name="AbstractController" />
         <module name="BangBangControllerA" />
         <module name="BangBangControllerB" />
         <module name="BangBangControllerC" />
@@ -35,18 +36,18 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AbstactDistanceController" target="1.5" />
-      <module name="AbstractController" target="1.5" />
+      <module name="AbstractController" target="1.8" />
       <module name="AbstractDistanceController" target="1.5" />
       <module name="AbstractLightController" target="1.5" />
-      <module name="BangBangControllerA" target="1.5" />
-      <module name="BangBangControllerB" target="1.5" />
-      <module name="BangBangControllerC" target="1.5" />
-      <module name="BangBangControllerD" target="1.5" />
-      <module name="ProportionalControllerA" target="1.5" />
-      <module name="ProportionalControllerB" target="1.5" />
-      <module name="ProportionalControllerC" target="1.5" />
-      <module name="ProportionalControllerD" target="1.5" />
-      <module name="webots" target="1.5" />
+      <module name="BangBangControllerA" target="1.8" />
+      <module name="BangBangControllerB" target="1.8" />
+      <module name="BangBangControllerC" target="1.8" />
+      <module name="BangBangControllerD" target="1.8" />
+      <module name="ProportionalControllerA" target="1.8" />
+      <module name="ProportionalControllerB" target="1.8" />
+      <module name="ProportionalControllerC" target="1.8" />
+      <module name="ProportionalControllerD" target="1.8" />
+      <module name="webots" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
