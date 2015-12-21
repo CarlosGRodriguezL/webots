@@ -1,17 +1,14 @@
-import com.cyberbotics.webots.controller.DifferentialWheels;
-import com.cyberbotics.webots.controller.DistanceSensor;
-
 /**
  * Created by Dominik on 17.12.2015.
  */
-public class BangBangControllerC extends AbstractDistanceController {
+public class BangBangControllerC extends AbstractController {
 
     public BangBangControllerC() {
         super();
     }
 
     private boolean isFrontSensorInTolerance () {
-        if ((Math.abs(sensors[S_FRONT_RIGHT].getValue() - sensors[S_FRONT_LEFT].getValue()) < DISTANCE_TOLERANCE)){
+        if ((Math.abs(distanceSensors[S_FRONT_RIGHT].getValue() - distanceSensors[S_FRONT_LEFT].getValue()) < DISTANCE_TOLERANCE)){
             return true;
         } else {
             return false;
@@ -25,13 +22,13 @@ public class BangBangControllerC extends AbstractDistanceController {
     public void run() {
         while (step(TIME_STEP) != -1) {
             if (isFrontSensorInTolerance()){
-                printInfo("DriveStraightForward");
+                printDistanceInfo("DriveStraightForward");
                 driveForward();
-            } else if (sensors[S_FRONT_LEFT].getValue() > sensors[S_FRONT_RIGHT].getValue()){
-                printInfo("DriveLeft");
+            } else if (distanceSensors[S_FRONT_LEFT].getValue() > distanceSensors[S_FRONT_RIGHT].getValue()){
+                printDistanceInfo("DriveLeft");
                 driveLeft();
-            } else if (sensors[S_FRONT_RIGHT].getValue() > sensors[S_FRONT_LEFT].getValue()){
-                printInfo("DriveRight");
+            } else if (distanceSensors[S_FRONT_RIGHT].getValue() > distanceSensors[S_FRONT_LEFT].getValue()){
+                printDistanceInfo("DriveRight");
                 driveRight();
             }
         }

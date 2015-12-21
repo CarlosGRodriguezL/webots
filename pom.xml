@@ -14,8 +14,10 @@
         <module>BangBangControllerC</module>
         <module>ProportionalControllerC</module>
         <module>BangBangControllerB</module>
-        <module>AbstractLightController</module>
-        <module>AbstractDistanceController</module>
+        <module>AbstractController</module>
+        <module>ProportionalControllerB</module>
+        <module>BangBangControllerD</module>
+        <module>ProportionalControllerD</module>
     </modules>
 
     <repositories>

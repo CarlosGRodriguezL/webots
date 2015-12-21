@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: domcar:AbstractLightController:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="AbstractController" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: webots:webots:8.3.1" level="project" />
   </component>
 </module>

@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="BangBangController">
-    <output-path>$PROJECT_DIR$/out/artifacts/BangBangController</output-path>
-    <root id="archive" name="BangBangController.jar">
-      <element id="module-output" name="webots" />
-    </root>
-  </artifact>
-</component>

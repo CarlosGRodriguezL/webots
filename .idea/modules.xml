@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AbstractDistanceController/AbstractDistanceController.iml" filepath="$PROJECT_DIR$/AbstractDistanceController/AbstractDistanceController.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AbstractLightController/AbstractLightController.iml" filepath="$PROJECT_DIR$/AbstractLightController/AbstractLightController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AbstractController/AbstractController.iml" filepath="$PROJECT_DIR$/AbstractController/AbstractController.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" filepath="$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" filepath="$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" filepath="$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BangBangControllerD/BangBangControllerD.iml" filepath="$PROJECT_DIR$/BangBangControllerD/BangBangControllerD.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" filepath="$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" filepath="$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" filepath="$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProportionalControllerD/ProportionalControllerD.iml" filepath="$PROJECT_DIR$/ProportionalControllerD/ProportionalControllerD.iml" />
       <module fileurl="file://$PROJECT_DIR$/webots.iml" filepath="$PROJECT_DIR$/webots.iml" />
     </modules>
   </component>

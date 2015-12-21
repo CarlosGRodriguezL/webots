@@ -12,4 +12,34 @@
     <artifactId>BangBangControllerB</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>domcar</groupId>
+            <artifactId>AbstractController</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>BangBangControllerB</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

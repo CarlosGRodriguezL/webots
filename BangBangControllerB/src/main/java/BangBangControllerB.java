@@ -1,54 +1,14 @@
-import com.cyberbotics.webots.controller.DifferentialWheels;
-import com.cyberbotics.webots.controller.LightSensor;
-
 /**
  * Created by Carlos on 07.12.2015.
  */
-public class BangBangControllerB extends DifferentialWheels {
-    private static int TIME_STEP = 16;
-
-    private static int MAX_LIGHT = 4096;
-
-    private static int S_LEFT = 0; // Sensor left
-    private static int S_FRONT_LEFT = 1; // Sensor front left
-    private static int S_FRONT_RIGHT = 2; // Sensor front right
-    private static int S_RIGHT = 3; // Sensor left
-    private static int MIN_SPEED = 0; // min. motor speed
+public class BangBangControllerB extends AbstractController {
     private static int AVG_SPEED = 500;
     private static int MAX_SPEED = 1000; // max. motor speed
 
-
-    private LightSensor[] sensors; // Array with all distance sensors
+    private static boolean flag = true;
 
     public BangBangControllerB() {
         super();
-        // get distance sensors and save them in array
-        sensors = new LightSensor[] { getLightSensor("ls5"),
-                getLightSensor("ls7"), getLightSensor("ls0"),
-                getLightSensor("ls2") };
-        for (int i=0; i<4; i++)
-            sensors[i].enable(10);
-    }
-
-    /**
-     * Robot drives to the right
-     */
-    private void driveRight() {
-        setSpeed(MAX_SPEED, MIN_SPEED);
-    }
-
-    /**
-     * Robot drives to the left
-     */
-    private void driveLeft() {
-        setSpeed(MIN_SPEED, MAX_SPEED);
-    }
-
-    /**
-     * Robot drives forward
-     */
-    private void driveForward() {
-        setSpeed(MAX_SPEED, MAX_SPEED);
     }
 
     private void driveAvgRight(){
@@ -68,30 +28,31 @@ public class BangBangControllerB extends DifferentialWheels {
      * BangBangFollowTheWall class
      */
     public void run() {
-        while (step(TIME_STEP) != -1) {
-            if(sensors[S_FRONT_LEFT].getValue() >= MAX_LIGHT ||
-                    sensors[S_FRONT_RIGHT].getValue() >= MAX_LIGHT){
-                pause();
+        while (step(TIME_STEP) != -1 && flag) {
+            if((distanceSensors[S_FRONT_LEFT].getValue() < -10 || distanceSensors[S_FRONT_RIGHT].getValue() < -10) &&
+                    (lightSensors[S_FRONT_LEFT].getValue() <= 2700 || lightSensors[S_FRONT_RIGHT].getValue() <= 2700)){
+                flag = false;
+                printDistanceInfo("Distance");
+                setSpeed(MIN_SPEED, MIN_SPEED);
             }
-            if (sensors[S_LEFT].getValue() < sensors[S_RIGHT].getValue()) {
-                if (sensors[S_LEFT].getValue() > sensors[S_FRONT_LEFT].getValue()) {
-                    printInfo();
-                    driveLeft();
-                } else {
-                    printInfo();
-                    driveAvgLeft();
+            if(flag) {
+                if (lightSensors[S_LEFT].getValue() < lightSensors[S_RIGHT].getValue()) {
+                    if (lightSensors[S_LEFT].getValue() > lightSensors[S_FRONT_LEFT].getValue()) {
+                        printLightInfo("driveLeft");
+                        driveLeft();
+                    } else {
+                        printLightInfo("driveLeft");
+                        driveAvgLeft();
+                    }
+                } else if (lightSensors[S_RIGHT].getValue() < lightSensors[S_LEFT].getValue()) {
+                    if (lightSensors[S_RIGHT].getValue() > lightSensors[S_FRONT_RIGHT].getValue()) {
+                        printLightInfo("driveRight");
+                        driveRight();
+                    } else {
+                        printLightInfo("driveRight");
+                        driveAvgRight();
+                    }
                 }
-            } else if (sensors[S_RIGHT].getValue() < sensors[S_LEFT].getValue()) {
-                if (sensors[S_RIGHT].getValue() > sensors[S_FRONT_RIGHT].getValue()) {
-                    printInfo();
-                    driveRight();
-                } else {
-                    printInfo();
-                    driveAvgRight();
-                }
-            } else {
-                printInfo();
-                driveForward();
             }
         }
     }
@@ -105,14 +66,5 @@ public class BangBangControllerB extends DifferentialWheels {
     public static void main(String[] args) {
         BangBangControllerB controller = new BangBangControllerB();
         controller.run();
-    }
-
-    public void printInfo(){
-        System.out.println(
-            "LEFT: "+ sensors[S_LEFT].getValue()  + "; " +
-            "RIGHT: "+ sensors[S_RIGHT].getValue() + "; " +
-            "LEFT_FRONT: "+ sensors[S_FRONT_LEFT].getValue() + "; " +
-            "RIGHT_FRONT: "+ sensors[S_FRONT_RIGHT].getValue() + "; "
-        );
     }
 }

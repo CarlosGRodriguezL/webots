@@ -1,9 +1,11 @@
 /**
  * Created by Dominik on 17.12.2015.
  */
-public class ProportionalControllerA extends AbstractController {
+public class ProportionalControllerB extends AbstractController {
 
-    public ProportionalControllerA() {
+    public static boolean flag = true;
+
+    public ProportionalControllerB() {
         super();
     }
 
@@ -12,7 +14,9 @@ public class ProportionalControllerA extends AbstractController {
      * ProportionalControllerA class
      */
     public void run() {
-        while (step(TIME_STEP) != -1) {
+        while (step(TIME_STEP) != -1 && flag) {
+            flag = !((distanceSensors[S_FRONT_LEFT].getValue() < -10 || distanceSensors[S_FRONT_RIGHT].getValue() < -10) &&
+                    (lightSensors[S_FRONT_LEFT].getValue() <= 2700 || lightSensors[S_FRONT_RIGHT].getValue() <= 2700));
             goToLightSource();
             printLightInfo("GoToLightSource");
         }
@@ -27,9 +31,13 @@ public class ProportionalControllerA extends AbstractController {
     }
 
     private void goToLightSource(){
-        double speedLeft = MAX_SPEED - calcLeftSpeed();
-        double speedRight = MAX_SPEED - calcRightSpeed();
-        setSpeed(Math.min(MAX_SPEED, speedLeft), Math.min(MAX_SPEED, speedRight));
+        if(flag) {
+            double speedLeft = MAX_SPEED - calcLeftSpeed();
+            double speedRight = MAX_SPEED - calcRightSpeed();
+            setSpeed(Math.min(MAX_SPEED, speedLeft), Math.min(MAX_SPEED, speedRight));
+        }else{
+            setSpeed(MIN_SPEED,MIN_SPEED);
+        }
     }
 
 
@@ -40,7 +48,7 @@ public class ProportionalControllerA extends AbstractController {
      * @param args
      */
     public static void main(String[] args) {
-        ProportionalControllerA controller = new ProportionalControllerA();
+        ProportionalControllerB controller = new ProportionalControllerB();
         controller.run();
     }
 

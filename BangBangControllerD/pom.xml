@@ -3,13 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>bangbang</artifactId>
+        <artifactId>AbstractController</artifactId>
         <groupId>domcar</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../AbstractController/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ProportionalControllerC</artifactId>
+    <artifactId>BangBangControllerD</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>domcar</groupId>
@@ -34,7 +36,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
-                    <finalName>ProportionalControllerC</finalName>
+                    <finalName>BangBangControllerD</finalName>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,9 +1,9 @@
 /**
  * Created by Dominik on 17.12.2015.
  */
-public class ProportionalControllerC extends AbstractController {
+public class ProportionalControllerD extends AbstractController {
 
-    public ProportionalControllerC() {
+    public ProportionalControllerD() {
         super();
     }
 
@@ -19,16 +19,16 @@ public class ProportionalControllerC extends AbstractController {
     }
 
     private double calcRightSpeed(){
-        return (distanceSensors[S_FRONT_RIGHT].getValue() - distanceSensors[S_FRONT_LEFT].getValue());
+        return (distanceSensors[S_FRONT_LEFT].getValue() + distanceSensors[S_LEFT].getValue())/2;
     }
 
     private double calcLeftSpeed(){
-        return (distanceSensors[S_FRONT_LEFT].getValue() - distanceSensors[S_FRONT_RIGHT].getValue());
+        return distanceSensors[S_FRONT_LEFT].getValue() + distanceSensors[S_LEFT].getValue();
     }
 
     private void balanceBall(){
-        double speedLeft = MAX_SPEED - calcLeftSpeed();
-        double speedRight = MAX_SPEED - calcRightSpeed();
+        double speedLeft = MAX_SPEED + calcLeftSpeed();
+        double speedRight = MAX_SPEED ;
         setSpeed(Math.min(MAX_SPEED, speedLeft), Math.min(MAX_SPEED, speedRight));
     }
 
@@ -39,7 +39,7 @@ public class ProportionalControllerC extends AbstractController {
      * @param args
      */
     public static void main(String[] args) {
-        ProportionalControllerC controller = new ProportionalControllerC();
+        ProportionalControllerD controller = new ProportionalControllerD();
         controller.run();
     }
 

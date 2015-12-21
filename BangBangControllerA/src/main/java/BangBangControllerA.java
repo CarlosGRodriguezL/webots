@@ -1,10 +1,7 @@
-import com.cyberbotics.webots.controller.DifferentialWheels;
-import com.cyberbotics.webots.controller.LightSensor;
-
 /**
  * Created by Dominik on 16.12.2015.
  */
-public class BangBangControllerA extends AbstractLightController {
+public class BangBangControllerA extends AbstractController {
 
     public BangBangControllerA() {
         super();
@@ -16,11 +13,11 @@ public class BangBangControllerA extends AbstractLightController {
      */
     public void run() {
         while (step(TIME_STEP) != -1) {
-            if (sensors[S_LEFT].getValue() < sensors[S_RIGHT].getValue()) {
-                printInfo("DriveLeft");
+            if (lightSensors[S_LEFT].getValue() < lightSensors[S_RIGHT].getValue()) {
+                printLightInfo("DriveLeft");
                 driveLeft();
-            } else if (sensors[S_RIGHT].getValue() < sensors[S_LEFT].getValue()) {
-                printInfo("DriveRight");
+            } else if (lightSensors[S_RIGHT].getValue() < lightSensors[S_LEFT].getValue()) {
+                printLightInfo("DriveRight");
                 driveRight();
             }
         }
