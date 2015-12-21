@@ -14,9 +14,7 @@ public class ProportionalControllerB extends AbstractController {
      * ProportionalControllerA class
      */
     public void run() {
-        while (step(TIME_STEP) != -1 && flag) {
-            flag = !((distanceSensors[S_FRONT_LEFT].getValue() < -10 || distanceSensors[S_FRONT_RIGHT].getValue() < -10) &&
-                    (lightSensors[S_FRONT_LEFT].getValue() <= 2700 || lightSensors[S_FRONT_RIGHT].getValue() <= 2700));
+        while (step(TIME_STEP) != -1 ) {
             goToLightSource();
             printLightInfo("GoToLightSource");
         }
@@ -31,13 +29,9 @@ public class ProportionalControllerB extends AbstractController {
     }
 
     private void goToLightSource(){
-        if(flag) {
-            double speedLeft = MAX_SPEED - calcLeftSpeed();
-            double speedRight = MAX_SPEED - calcRightSpeed();
+            double speedLeft = (MAX_SPEED - calcLeftSpeed())*(2800 - distanceSensors[S_FRONT_LEFT].getValue());
+            double speedRight = (MAX_SPEED - calcRightSpeed())*(2800 - distanceSensors[S_FRONT_LEFT].getValue());
             setSpeed(Math.min(MAX_SPEED, speedLeft), Math.min(MAX_SPEED, speedRight));
-        }else{
-            setSpeed(MIN_SPEED,MIN_SPEED);
-        }
     }
 
 

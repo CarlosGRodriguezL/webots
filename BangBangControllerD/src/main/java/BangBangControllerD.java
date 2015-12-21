@@ -29,10 +29,10 @@ public class BangBangControllerD extends AbstractController {
                     flag= false;
                 }
             }else{
-                if(distanceSensors[S_FRONT_LEFT].getValue() < 2500){
+                if(!(distanceSensors[S_LEFT].getValue() > 100 )){
                     if(distanceSensors[S_LEFT].getValue() < prevLeft
-                            || distanceSensors[S_LEFT].getValue() > 2300){
-                        printDistanceInfo("driveLeft:");
+                            || distanceSensors[S_LEFT].getValue() > 50){
+                        printDistanceInfo("turnLeft:");
                         driveLeft();
                         prevLeft = distanceSensors[S_LEFT].getValue();
                     }else {
@@ -46,7 +46,8 @@ public class BangBangControllerD extends AbstractController {
                     driveForward();
                     prevLeft = distanceSensors[S_LEFT].getValue();
                 }else{
-                    printDistanceInfo("nichts: ");
+                    printDistanceInfo("turnLeft: ");
+                    setSpeed(MAX_SPEED, MAX_SPEED * -1);
                     prevLeft = distanceSensors[S_LEFT].getValue();
                 }
             }

@@ -24,6 +24,7 @@
         <processorPath useClasspath="true" />
         <module name="AbstactDistanceController" />
         <module name="AbstractController" />
+        <module name="BallCollector" />
         <module name="BangBangControllerA" />
         <module name="BangBangControllerB" />
         <module name="BangBangControllerC" />
@@ -31,7 +32,6 @@
         <module name="ProportionalControllerA" />
         <module name="ProportionalControllerB" />
         <module name="ProportionalControllerC" />
-        <module name="ProportionalControllerD" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -39,6 +39,7 @@
       <module name="AbstractController" target="1.8" />
       <module name="AbstractDistanceController" target="1.5" />
       <module name="AbstractLightController" target="1.5" />
+      <module name="BallCollector" target="1.8" />
       <module name="BangBangControllerA" target="1.8" />
       <module name="BangBangControllerB" target="1.8" />
       <module name="BangBangControllerC" target="1.8" />

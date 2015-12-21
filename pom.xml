@@ -23,7 +23,7 @@
         <module>AbstractController</module>
         <module>ProportionalControllerB</module>
         <module>BangBangControllerD</module>
-        <module>ProportionalControllerD</module>
+        <module>BallCollector</module>
     </modules>
 
     <repositories>

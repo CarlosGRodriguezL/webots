@@ -52,6 +52,7 @@
         <option value="$PROJECT_DIR$/AbstactDistanceController/pom.xml" />
         <option value="$PROJECT_DIR$/AbstractDistanceController/pom.xml" />
         <option value="$PROJECT_DIR$/AbstractLightController/pom.xml" />
+        <option value="$PROJECT_DIR$/ProportionalControllerD/pom.xml" />
       </set>
     </option>
   </component>
