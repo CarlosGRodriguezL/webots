@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" filepath="$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" filepath="$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" filepath="$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SearchBall/SearchBall.iml" filepath="$PROJECT_DIR$/SearchBall/SearchBall.iml" />
       <module fileurl="file://$PROJECT_DIR$/webots.iml" filepath="$PROJECT_DIR$/webots.iml" />
     </modules>
   </component>

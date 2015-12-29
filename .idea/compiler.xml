@@ -32,6 +32,7 @@
         <module name="ProportionalControllerA" />
         <module name="ProportionalControllerB" />
         <module name="ProportionalControllerC" />
+        <module name="SearchBall" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -48,6 +49,7 @@
       <module name="ProportionalControllerB" target="1.8" />
       <module name="ProportionalControllerC" target="1.8" />
       <module name="ProportionalControllerD" target="1.8" />
+      <module name="SearchBall" target="1.8" />
       <module name="webots" target="1.8" />
     </bytecodeTargetLevel>
   </component>

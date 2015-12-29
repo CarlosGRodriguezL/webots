@@ -12,7 +12,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="AbstractController" />
-    <orderEntry type="module" module-name="SearchBall" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: webots:webots:8.3.1" level="project" />
   </component>
 </module>
