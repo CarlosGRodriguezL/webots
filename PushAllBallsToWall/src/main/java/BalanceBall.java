@@ -24,8 +24,10 @@ public class BalanceBall implements Behaviour {
             && (collector.distanceSensors[collector.S_FRONT_LEFT].getValue() >= 100 ||
                     collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() >= 100)
             && !(sum > WALL_TOLERANCE_MAX || sum < WALL_TOLERANCE_MIN)){
+            System.out.println("BalanceBall: true " + sum);
             return true;
         }else{
+            System.out.println("BalanceBall: false " + sum);
             return false;
         }
     }

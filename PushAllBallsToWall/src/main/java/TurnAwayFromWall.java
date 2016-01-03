@@ -3,7 +3,7 @@
  */
 public class TurnAwayFromWall implements Behaviour {
 
-    public double WALL_TOLERANCE_MAX = 16.9;
+    public double WALL_TOLERANCE_MAX = 17.9;
     public double WALL_TOLERANCE_MIN = 5;
 
     private BallCollector collector;
@@ -23,9 +23,11 @@ public class TurnAwayFromWall implements Behaviour {
                         collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() >= 2700 &&
                         (collector.distanceSensors[collector.S_AVG_LEFT].getValue() >= 700 ||
                                 collector.distanceSensors[collector.S_AVG_RIGHT].getValue() >= 700))){
+            System.out.println("TurnAwayFromWall: true " + sum);
             return true;
         }
         else {
+            System.out.println("TurnAwayFromWall: false " + sum);
             return false;
         }
     }
