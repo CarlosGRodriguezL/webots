@@ -73,11 +73,11 @@ public class AbstractController extends DifferentialWheels {
     }
 
     protected void printDistanceInfo(String name){
-        System.out.println(name);
-        System.out.println("Accelerometer x: " + accelerometer.getValues()[0]);
-        System.out.println("Accelerometer y: " + accelerometer.getValues()[1]);
-        System.out.println("Accelerometer z: " + accelerometer.getValues()[2]);
-        System.out.println(
+        double xValue = Math.abs(accelerometer.getValues()[0]);
+        double yValue = Math.abs(accelerometer.getValues()[1]);
+        double zValue = Math.abs(accelerometer.getValues()[2]);
+        double sum = xValue + yValue + zValue;
+        System.out.println(name + "; " + "Accelerometer sum: " + sum + "; " +
                 "LEFT: " + distanceSensors[S_LEFT].getValue()  + "; " +
                 "RIGHT: " + distanceSensors[S_RIGHT].getValue() + "; " +
                 "AVG_LEFT: " + distanceSensors[S_AVG_LEFT].getValue()  + "; " +
@@ -88,11 +88,7 @@ public class AbstractController extends DifferentialWheels {
     }
 
     protected void printLightInfo(String name){
-        System.out.println(name);
-        System.out.println("Accelerometer x: " + accelerometer.getValues()[0]);
-        System.out.println("Accelerometer y: " + accelerometer.getValues()[1]);
-        System.out.println("Accelerometer z: " + accelerometer.getValues()[2]);
-        System.out.println(
+        System.out.println(name + "; " +
                 "LEFT: " + lightSensors[S_LEFT].getValue()  + "; " +
                 "RIGHT: " + lightSensors[S_RIGHT].getValue() + "; " +
                 "AVG_LEFT: " + lightSensors[S_AVG_LEFT].getValue()  + "; " +

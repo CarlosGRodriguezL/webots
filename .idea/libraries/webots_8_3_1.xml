@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="webots-8.3.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/webots/webots/8.3.1/webots-8.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

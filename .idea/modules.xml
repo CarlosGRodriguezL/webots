@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AbstractController/AbstractController.iml" filepath="$PROJECT_DIR$/AbstractController/AbstractController.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BallCollector/BallCollector.iml" filepath="$PROJECT_DIR$/BallCollector/BallCollector.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" filepath="$PROJECT_DIR$/BangBangControllerA/BangBangControllerA.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" filepath="$PROJECT_DIR$/BangBangControllerB/BangBangControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" filepath="$PROJECT_DIR$/BangBangControllerC/BangBangControllerC.iml" />
@@ -11,7 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" filepath="$PROJECT_DIR$/ProportionalControllerA/ProportionalControllerA.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" filepath="$PROJECT_DIR$/ProportionalControllerB/ProportionalControllerB.iml" />
       <module fileurl="file://$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" filepath="$PROJECT_DIR$/ProportionalControllerC/ProportionalControllerC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SearchBall/SearchBall.iml" filepath="$PROJECT_DIR$/SearchBall/SearchBall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushAllBallsToWall/PushAllBallsToWall.iml" filepath="$PROJECT_DIR$/PushAllBallsToWall/PushAllBallsToWall.iml" />
       <module fileurl="file://$PROJECT_DIR$/webots.iml" filepath="$PROJECT_DIR$/webots.iml" />
     </modules>
   </component>

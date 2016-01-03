@@ -22,8 +22,8 @@
         <module>AbstractController</module>
         <module>ProportionalControllerB</module>
         <module>BangBangControllerD</module>
-        <module>BallCollector</module>
-        <module>SearchBall</module>
+        <module>BangBangControllerB</module>
+        <module>PushAllBallsToWall</module>
     </modules>
 
     <repositories>
