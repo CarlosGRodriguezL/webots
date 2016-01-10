@@ -76,7 +76,7 @@ public class AbstractController extends DifferentialWheels {
         double xValue = Math.abs(accelerometer.getValues()[0]);
         double yValue = Math.abs(accelerometer.getValues()[1]);
         double zValue = Math.abs(accelerometer.getValues()[2]);
-        double sum = xValue + yValue + zValue;
+        double sum = (xValue + yValue) * zValue;
         System.out.println(name + "; " + "Accelerometer sum: " + sum + "; " +
                 "LEFT: " + distanceSensors[S_LEFT].getValue()  + "; " +
                 "RIGHT: " + distanceSensors[S_RIGHT].getValue() + "; " +

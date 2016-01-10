@@ -3,7 +3,7 @@
  */
 public class BalanceBall implements Behaviour {
 
-    public double WALL_TOLERANCE_MAX = 18;
+    public double WALL_TOLERANCE_MAX = 19;
     public double WALL_TOLERANCE_MIN = 5;
 
     private BallCollector collector;
@@ -14,20 +14,12 @@ public class BalanceBall implements Behaviour {
 
     @Override
     public boolean takeControl() {
-        double xValue = Math.abs(collector.accelerometer.getValues()[0]);
-        double yValue = Math.abs(collector.accelerometer.getValues()[1]);
-        double zValue = Math.abs(collector.accelerometer.getValues()[2]);
-        double sum = xValue + yValue + zValue;
-        if(
-            (collector.distanceSensors[collector.S_FRONT_LEFT].getValue() <= 2800 &&
+        if((collector.distanceSensors[collector.S_FRONT_LEFT].getValue() <= 2800 &&
                 collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() <= 2800)
             && (collector.distanceSensors[collector.S_FRONT_LEFT].getValue() >= 100 ||
-                    collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() >= 100)
-            && !(sum > WALL_TOLERANCE_MAX || sum < WALL_TOLERANCE_MIN)){
-            System.out.println("BalanceBall: true " + sum);
+                    collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() >= 100)) {
             return true;
         }else{
-            System.out.println("BalanceBall: false " + sum);
             return false;
         }
     }
