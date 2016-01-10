@@ -3,7 +3,8 @@
  */
 public class TurnAwayFromWall implements Behaviour {
 
-    public double WALL_TOLERANCE_MAX = 57;
+    public double WALL_TOLERANCE_MAX = 17.9;
+    public double WALL_TOLERANCE_MIN = 5;
 
     private BallCollector collector;
 
@@ -16,12 +17,12 @@ public class TurnAwayFromWall implements Behaviour {
         double xValue = Math.abs(collector.accelerometer.getValues()[0]);
         double yValue = Math.abs(collector.accelerometer.getValues()[1]);
         double zValue = Math.abs(collector.accelerometer.getValues()[2]);
-        double sum = (xValue + yValue) * zValue;
-        if (sum > WALL_TOLERANCE_MAX ||
-                        (collector.distanceSensors[collector.S_AVG_LEFT].getValue() >= 1100 ||
-                                collector.distanceSensors[collector.S_AVG_RIGHT].getValue() >= 1100) ||
-                (collector.distanceSensors[collector.S_LEFT].getValue() >= 700 ||
-                        collector.distanceSensors[collector.S_RIGHT].getValue() >= 700)){
+        double sum = xValue + yValue + zValue;
+        if (sum > WALL_TOLERANCE_MAX || sum < WALL_TOLERANCE_MIN ||
+                (collector.distanceSensors[collector.S_FRONT_LEFT].getValue() >= 2700 ||
+                        collector.distanceSensors[collector.S_FRONT_RIGHT].getValue() >= 2700 &&
+                                (collector.distanceSensors[collector.S_AVG_LEFT].getValue() >= 700 ||
+                                        collector.distanceSensors[collector.S_AVG_RIGHT].getValue() >= 700))){
             System.out.println("TurnAwayFromWall: true " + sum);
             return true;
         }
@@ -34,12 +35,7 @@ public class TurnAwayFromWall implements Behaviour {
     @Override
     public void action() {
         int counter = 0;
-        int counter2 = 0;
-        while (collector.step(collector.TIME_STEP) != 16 && counter < 5) {
-            while (collector.step(collector.TIME_STEP) != 16 && counter2 < 5) {
-                counter2++;
-                collector.setSpeed(-1000, -1000);
-            }
+        while (collector.step(collector.TIME_STEP) != 16 && counter < 30) {
             counter++;
             collector.setSpeed(1000, -1000);
         }
